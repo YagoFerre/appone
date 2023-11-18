@@ -1,0 +1,39 @@
+<main class="container-main">
+  <mat-card class="card">
+    <label class="label">Afirmação</label>
+      <mat-radio-group
+        class="radio-group-box"
+        [(ngModel)]="afirmacao">
+
+        <mat-radio-button class="radio-button" value="S">Sim</mat-radio-button>
+        <mat-radio-button class="radio-button" value="N">Não</mat-radio-button>
+      </mat-radio-group>
+
+      <div>Your favorite season is: {{afirmacao}}</div>
+  </mat-card>
+
+  <mat-card class="card">
+    <mat-form-field class="example-full-width">
+      <mat-label>Justificativa</mat-label>
+      <textarea matInput></textarea>
+    </mat-form-field>
+  </mat-card>
+
+  <mat-card class="card">
+    <label class="label">Resultado</label>
+      <mat-radio-group
+        class="radio-group-box"
+        [(ngModel)]="resultado">
+
+        <mat-radio-button class="radio-button" value="S">Sim</mat-radio-button>
+        <mat-radio-button class="radio-button" value="N">Não</mat-radio-button>
+      </mat-radio-group>
+
+      <div>Your favorite season is: {{resultado}}</div>
+  </mat-card>
+
+  <div class="footer">
+    <button mat-raised-button color="primary">Criar</button>
+    <button mat-raised-button color="basic" routerLink="listar">Listar</button>
+  </div>
+</main>
