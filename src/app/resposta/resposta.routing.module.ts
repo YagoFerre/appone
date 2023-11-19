@@ -1,8 +1,8 @@
+import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { CriarComponent } from "./criar/criar.component";
 import { ListarComponent } from "./listar/listar.component";
 import { EditarComponent } from "./editar/editar.component";
-import { ModuleWithProviders } from "@angular/core";
 
 const RESPOSTA_ROUTES: Routes = [
   { path: '', component: CriarComponent },
@@ -10,4 +10,12 @@ const RESPOSTA_ROUTES: Routes = [
   { path: 'listar/editar/:id', component: EditarComponent }
 ];
 
-export const routing: ModuleWithProviders<RouterModule> = RouterModule.forRoot(RESPOSTA_ROUTES);
+@NgModule({
+  imports: [
+    RouterModule.forRoot(RESPOSTA_ROUTES)
+  ],
+  exports: [
+    RouterModule
+  ]
+})
+export class RespostaRoutingModule {}

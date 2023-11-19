@@ -1,21 +1,19 @@
-<main class="container-main">
+<form class="container-main" [formGroup]="form" (ngSubmit)="onSubmit()">
   <mat-card class="card">
     <label class="label">Afirmação</label>
       <mat-radio-group
         class="radio-group-box"
-        [(ngModel)]="afirmacao">
+        ngModel formControlName="afirmacao">
 
         <mat-radio-button class="radio-button" value="S">Sim</mat-radio-button>
         <mat-radio-button class="radio-button" value="N">Não</mat-radio-button>
       </mat-radio-group>
-
-      <div>Your favorite season is: {{afirmacao}}</div>
   </mat-card>
 
   <mat-card class="card">
     <mat-form-field class="example-full-width">
       <mat-label>Justificativa</mat-label>
-      <textarea matInput></textarea>
+      <textarea matInput ngModel formControlName="justificativa"></textarea>
     </mat-form-field>
   </mat-card>
 
@@ -23,17 +21,15 @@
     <label class="label">Resultado</label>
       <mat-radio-group
         class="radio-group-box"
-        [(ngModel)]="resultado">
+        ngModel formControlName="resultado">
 
         <mat-radio-button class="radio-button" value="S">Sim</mat-radio-button>
         <mat-radio-button class="radio-button" value="N">Não</mat-radio-button>
       </mat-radio-group>
-
-      <div>Your favorite season is: {{resultado}}</div>
   </mat-card>
 
   <div class="footer">
-    <button mat-raised-button color="primary">Criar</button>
+    <button mat-raised-button color="primary" type="submit">Criar</button>
     <button mat-raised-button color="basic" routerLink="listar">Listar</button>
   </div>
-</main>
+</form>

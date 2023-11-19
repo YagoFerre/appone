@@ -1,55 +1,21 @@
 <main class="container-main">
-  <mat-card class="card">
-    <p><strong>Afirmação: </strong>Sim</p>
+  <mat-card class="card" *ngFor="let resposta of respostas">
+    <p><strong>Afirmação: </strong>{{ resposta.afirmacao }}</p>
 
     <div>
       <strong>Justificativa</strong>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, accusamus corporis voluptatum eaque adipisci provident, nihil doloremque porro doloribus cupiditate saepe ab vel fugiat. Explicabo similique numquam iste molestiae ipsa.</p>
+      <p>{{ resposta.justificativa }}</p>
     </div>
 
-    <p><strong>Resultado: </strong>Sim</p>
+    <p><strong>Resultado: </strong>{{ resposta.resultado }}</p>
+
+    <p><strong>Data de envio: </strong>{{ resposta.data_envio | date }}</p>
 
     <mat-divider />
 
     <div class="footer">
-      <button mat-raised-button color="primary" routerLink="editar/1">Editar</button>
-      <button mat-raised-button color="warn">Excluir</button>
-    </div>
-  </mat-card>
-
-  <mat-card class="card">
-    <p><strong>Afirmação: </strong>Sim</p>
-
-    <div>
-      <strong>Justificativa</strong>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, accusamus corporis voluptatum eaque adipisci provident, nihil doloremque porro doloribus cupiditate saepe ab vel fugiat. Explicabo similique numquam iste molestiae ipsa.</p>
-    </div>
-
-    <p><strong>Resultado: </strong>Sim</p>
-
-    <mat-divider />
-
-    <div class="footer">
-      <button mat-raised-button color="primary" routerLink="editar/1">Editar</button>
-      <button mat-raised-button color="warn">Excluir</button>
-    </div>
-  </mat-card>
-
-  <mat-card class="card">
-    <p><strong>Afirmação: </strong>Sim</p>
-
-    <div>
-      <strong>Justificativa</strong>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, accusamus corporis voluptatum eaque adipisci provident, nihil doloremque porro doloribus cupiditate saepe ab vel fugiat. Explicabo similique numquam iste molestiae ipsa.</p>
-    </div>
-
-    <p><strong>Resultado: </strong>Sim</p>
-
-    <mat-divider />
-
-    <div class="footer">
-      <button mat-raised-button color="primary" routerLink="editar/1">Editar</button>
-      <button mat-raised-button color="warn">Excluir</button>
+      <button mat-raised-button color="primary" [routerLink]="['editar', resposta.id]">Editar</button>
+      <button mat-raised-button color="warn" (click)="onSubmit(resposta.id)">Excluir</button>
     </div>
   </mat-card>
 </main>

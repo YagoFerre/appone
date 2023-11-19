@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
@@ -14,7 +14,8 @@ import { RespostaComponent } from './resposta.component';
 import { CriarComponent } from './criar/criar.component';
 import { ListarComponent } from './listar/listar.component';
 import { EditarComponent } from './editar/editar.component';
-import { routing } from './resposta.routing';
+import { RespostaService } from './resposta.service';
+import { RespostaRoutingModule } from './resposta.routing.module';
 
 @NgModule({
   declarations: [
@@ -36,11 +37,15 @@ import { routing } from './resposta.routing';
     MatFormFieldModule,
     MatButtonModule,
     BrowserAnimationsModule,
-    routing
+    RespostaRoutingModule,
+    ReactiveFormsModule
   ],
-  providers: [{
-    provide: MAT_RADIO_DEFAULT_OPTIONS,
-    useValue: { color: 'primary' },
-  }]
+  providers: [
+    {
+      provide: MAT_RADIO_DEFAULT_OPTIONS,
+      useValue: { color: 'primary' },
+    },
+    RespostaService
+  ]
 })
 export class RespostaModule { }
